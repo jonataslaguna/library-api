@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed"
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed",
+    "dev": "npx -y tsc && npx nodemon --exec ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "dependencies": {
     "@types/sequelize": "4.28",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "sequelize": "^6.25.5"
   },
   "devDependencies": {
@@ -20,6 +22,7 @@
     "eslint": "6.8.0",
     "eslint-config-trybe-backend": "1.0.1",
     "mysql2": "2.3",
+    "nodemon": "^3.0.2",
     "sequelize-cli": "6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
