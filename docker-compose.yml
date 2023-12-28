@@ -1,7 +1,7 @@
 version: "3.1"
 
 services:
-  app-library:
+  backend:
     build: .
     user: node
     container_name: library_api
