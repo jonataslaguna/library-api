@@ -6,7 +6,7 @@ type BookInputtableTypes = Optional<Book, 'id'>;
 type BookSequelizeModelCreator = ModelDefined<Book, BookInputtableTypes>;
 export type BookSequelizeModel = Model<Book, BookInputtableTypes>;
 
-const BookModel: BookSequelizeModelCreator = db.define('Book', {
+const SequelizeBook: BookSequelizeModelCreator = db.define('Book', {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
     primaryKey: true,
@@ -34,4 +34,4 @@ const BookModel: BookSequelizeModelCreator = db.define('Book', {
   underscored: true,
 });
 
-export default BookModel;
+export default SequelizeBook;
