@@ -1,12 +1,27 @@
-import { DataTypes, Model, ModelDefined, Optional } from 'sequelize';
-import db from './index';
-import { Book } from '../../types/Book';
+import {
+  DataTypes,
+  Model,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+} from 'sequelize';
+import db from '.';
 
-type BookInputtableTypes = Optional<Book, 'id'>;
-type BookSequelizeModelCreator = ModelDefined<Book, BookInputtableTypes>;
-export type BookSequelizeModel = Model<Book, BookInputtableTypes>;
+class SequelizeBook extends Model<InferAttributes<SequelizeBook>,
+InferCreationAttributes<SequelizeBook>> {
 
-const SequelizeBook: BookSequelizeModelCreator = db.define('Book', {
+  declare id: CreationOptional<number>;
+  
+  declare title: string;
+
+  declare author: string;
+
+  declare category: string;
+
+  declare quantityPages: number;
+}
+
+SequelizeBook.init({
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
     primaryKey: true,
@@ -29,6 +44,7 @@ const SequelizeBook: BookSequelizeModelCreator = db.define('Book', {
     allowNull: false,
   },
 }, {
+  sequelize: db,
   tableName: 'books',
   timestamps: false,
   underscored: true,
