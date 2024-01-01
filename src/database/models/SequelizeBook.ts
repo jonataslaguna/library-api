@@ -42,6 +42,7 @@ SequelizeBook.init({
   quantityPages: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    field: 'quantity_pages',
   },
 }, {
   sequelize: db,

@@ -25,6 +25,7 @@ export default  {
       quantityPages: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'quantity_pages',
       },
     });
   },
