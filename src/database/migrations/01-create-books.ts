@@ -1,9 +1,9 @@
-import { DataTypes, Model, QueryInterface } from 'sequelize';
-import { Book } from '../../types/Book';
+import {Model, QueryInterface, DataTypes} from 'sequelize';
+import IBook from '../../Interfaces/Book/IBook';
 
-export default {
+export default  {
   up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<Book>>('books', {
+    return queryInterface.createTable<Model<IBook>>('books', {
       id: {
         type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
@@ -28,7 +28,16 @@ export default {
       },
     });
   },
+
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('books');
-  }
+     queryInterface.dropTable('books');
+  },
 };
+
+
+
+
+
+
+
+
