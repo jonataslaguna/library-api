@@ -8,33 +8,33 @@ export default {
         title: 'The Hobbit',
         author: 'J. R. R. Tolkien',
         category: 'Fantasy',
-        quantityPages: 310,
+        quantity_pages: 310,
       },
       {
         title: 'The Lord of the Rings',
         author: 'J. R. R. Tolkien',
         category: 'Fantasy',
-        quantityPages: 1178,
+        quantity_pages: 1178,
         
       },
       {
         title: '2001: A Space Odyssey',
         author: 'Arthur C. Clarke',
         category: 'Science fiction',
-        quantityPages: 336,
+        quantity_pages: 336,
         
       },
       {
         title:'Blade Runner',
         author: 'Philip K. Dick',
         category: 'Science fiction',
-        quantityPages: 221,
+        quantity_pages: 221,
       },
       {
         title: 'Harry Potter and the Philosopher\'s Stone',
         author: 'J. K. Rowling',
         category: 'Fantasy',
-        quantityPages: 342,
+        quantity_pages: 342,
       }
     ], {});
   },
