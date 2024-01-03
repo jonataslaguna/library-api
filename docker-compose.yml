@@ -9,7 +9,7 @@ services:
     working_dir: /app-backend
     command: npm run dev
     volumes: 
-        - src:/app-backend/src
+      - src:/src
     depends_on:
       db:
         condition: service_healthy
@@ -37,8 +37,9 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] 
       timeout: 10s
       retries: 5
-    cap_add:
-      - SYS_NICE 
+    volumes:
+      - db_data:/var/lib/mysql
 
 volumes:
   src:
+  db_data:
