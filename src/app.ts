@@ -1,5 +1,6 @@
 import * as express from 'express';
 import 'express-async-errors';
+import router from './routes';
 
 
 class App {
@@ -9,6 +10,8 @@ class App {
     this.app = express();
 
     this.config();
+
+    this.routes();
 
     this.app.get('/', (req, res) => res.json({ ok: true }));
   }
@@ -25,6 +28,10 @@ class App {
     this.app.use(accessControl);
   }
 
+  private routes(): void {
+    this.app.use(router);
+  }
+
   public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
@@ -32,4 +39,5 @@ class App {
 
 export { App };
 
+// Essa segunda exportação é estratégica, e a execução dos testes de cobertura depende dela
 export const { app } = new App();
