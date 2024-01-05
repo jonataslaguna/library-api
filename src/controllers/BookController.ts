@@ -12,4 +12,12 @@ export default class BookController {
      
         res.status(mapStatusHTTP(status)).json(data);
     }
+
+    async findById(req: Request, res: Response){
+        const {id} = req.params;
+
+        const { status, data} = await this.bookServise.findById(Number(id));
+     
+        res.status(mapStatusHTTP(status)).json(data);
+    }
 }
