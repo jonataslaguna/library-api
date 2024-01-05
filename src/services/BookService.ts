@@ -9,6 +9,14 @@ export default class BookService {
 
     async findAll(): Promise<ServiceResponse<IBook[]>>{
         const allBooks = await this.bookModel.findAll();
-        return {status: 'SUCCESSFUL', data: allBooks}
+        return {status: 'SUCCESSFUL', data: allBooks};
+    }
+
+    async findById(id: number): Promise<ServiceResponse<IBook>> {
+        const book =  await this.bookModel.findById(id);
+        
+        if (!book) return {status: 'NOT_FOUND', data: { message: 'Book not found' }};
+
+        return {status: 'SUCCESSFUL', data: book};
     }
 }
