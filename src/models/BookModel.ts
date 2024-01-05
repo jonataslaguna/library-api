@@ -7,4 +7,9 @@ export default class BookModel implements IBookModel {
         const books = await SequelizeBook.findAll();
         return books;
     }
+
+    async findById(id: number): Promise<IBook | null> {
+        const book = await SequelizeBook.findByPk(id);
+        return book;
+    }
 }
