@@ -13,4 +13,10 @@ export default class BookModel implements IBookModel {
         const book = await this.model.findByPk(id);
         return book;
     }
+
+    async createBook(newBookData: IBook): Promise<IBook> {
+        const newBook = await this.model.create(newBookData);
+
+        return newBook;
+    }
 }
