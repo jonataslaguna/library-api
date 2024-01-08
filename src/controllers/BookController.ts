@@ -20,4 +20,12 @@ export default class BookController {
      
         res.status(mapStatusHTTP(status)).json(data);
     }
+
+    async createBook(req: Request, res: Response){
+        const newBookData = req.body;
+
+        const { status, data} = await this.bookServise.createBook(newBookData);
+     
+        res.status(mapStatusHTTP(status)).json(data);
+    }
 }
