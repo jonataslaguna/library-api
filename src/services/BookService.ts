@@ -19,4 +19,10 @@ export default class BookService {
 
         return {status: 'SUCCESSFUL', data: book};
     }
+
+    async createBook(newBookData: IBook): Promise<ServiceResponse<IBook>> {
+        const addedBook =  await this.bookModel.createBook(newBookData);
+        
+        return {status: 'CREATED', data: addedBook};
+    }
 }
