@@ -19,4 +19,11 @@ export default class BookModel implements IBookModel {
 
         return newBook;
     }
+
+    async findByTitle(title: string): Promise<IBook | null> {
+        const book = await this.model.findOne({
+            where: {title: title}
+        });
+        return book;
+    }
 }
