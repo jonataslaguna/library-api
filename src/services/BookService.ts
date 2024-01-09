@@ -21,6 +21,10 @@ export default class BookService {
     }
 
     async createBook(newBookData: IBook): Promise<ServiceResponse<IBook>> {
+        const bookIsExist = await this.bookModel.findByTitle(newBookData.title);
+
+        if(bookIsExist) return {status: 'CONFLICT', data: { message: 'The book already exists' }};
+
         const addedBook =  await this.bookModel.createBook(newBookData);
         
         return {status: 'CREATED', data: addedBook};
