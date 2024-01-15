@@ -26,4 +26,10 @@ export default class BookModel implements IBookModel {
         });
         return book;
     }
+
+    async deleteBook(id: number): Promise<void> {
+        await this.model.destroy(
+            { where:{ id },
+        });
+    }
 }
