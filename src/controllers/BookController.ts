@@ -4,11 +4,11 @@ import mapStatusHTTP from '../utils/mapStatusHTTP';
 
 export default class BookController {
     constructor(
-        private bookServise = new BookService(),
+        private bookService = new BookService(),
     ){}
 
     async findAll(_req: Request, res: Response){
-        const { status, data} = await this.bookServise.findAll();
+        const { status, data} = await this.bookService.findAll();
      
         res.status(mapStatusHTTP(status)).json(data);
     }
@@ -16,7 +16,7 @@ export default class BookController {
     async findById(req: Request, res: Response){
         const {id} = req.params;
 
-        const { status, data} = await this.bookServise.findById(Number(id));
+        const { status, data} = await this.bookService.findById(Number(id));
      
         res.status(mapStatusHTTP(status)).json(data);
     }
@@ -24,15 +24,15 @@ export default class BookController {
     async createBook(req: Request, res: Response){
         const newBookData = req.body;
 
-        const { status, data} = await this.bookServise.createBook(newBookData);
+        const { status, data} = await this.bookService.createBook(newBookData);
      
         res.status(mapStatusHTTP(status)).json(data);
     }
 
     async deleteBook(req: Request, res: Response) {
-        const {id} = req.params;
-
-        const { status, data} = await this.bookServise.deleteBook(Number(id));
+        const { id } = req.params;
+      
+        const { status, data} = await this.bookService.deleteBook(Number(id));
      
         res.status(mapStatusHTTP(status)).json(data);
     }
