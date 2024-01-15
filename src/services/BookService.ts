@@ -33,7 +33,7 @@ export default class BookService {
     async deleteBook(id: number): Promise<ServiceResponse<ServiceMessage>> {
         const findBook = await this.bookModel.findById(id);
 
-        if(!id) return {status: 'NOT_FOUND', data: { message: 'Book not found' }};
+        if(!findBook) return {status: 'NOT_FOUND', data: { message: 'Book not found' }};
 
         await this.bookModel.deleteBook(id);
 
