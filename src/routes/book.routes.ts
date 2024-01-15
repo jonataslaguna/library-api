@@ -12,4 +12,6 @@ router.get('/:id', (req: Request, res: Response) => bookController.findById(req,
 
 router.post('/', BookValidation.validateNewBook, (req: Request, res: Response) => bookController.createBook(req, res));
 
+router.delete('/:id', (req: Request, res: Response) => bookController.deleteBook(req, res));
+
 export default router;
