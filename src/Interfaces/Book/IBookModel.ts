@@ -5,4 +5,5 @@ export default interface IBookModel {
     findById(id: number): Promise<IBook | null>;
     createBook(newBookData: IBook): Promise<IBook>; 
     findByTitle(title: string): Promise<IBook | null>;
+    deleteBook(id: number): Promise<void>;
 }
