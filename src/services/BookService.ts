@@ -1,4 +1,4 @@
-import { ServiceResponse } from '../types/ServiceResponseTypes';
+import { ServiceMessage, ServiceResponse } from '../types/ServiceResponseTypes';
 import { IBook, IBookModel } from '../Interfaces/Book';
 import BookModel from '../models/BookModel';
 
@@ -28,5 +28,15 @@ export default class BookService {
         const addedBook =  await this.bookModel.createBook(newBookData);
         
         return {status: 'CREATED', data: addedBook};
+    }
+
+    async deleteBook(id: number): Promise<ServiceResponse<ServiceMessage>> {
+        const findBook = await this.bookModel.findById(id);
+
+        if(!id) return {status: 'NOT_FOUND', data: { message: 'Book not found' }};
+
+        await this.bookModel.deleteBook(id);
+
+        return {status: 'SUCCESSFUL', data: { message: 'Book removed successfully' }};
     }
 }
